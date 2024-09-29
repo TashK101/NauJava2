@@ -1,13 +1,21 @@
 package org.example;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class RandArraySum{
-    private ArrayList<Integer> numbers;
+public class task1 {
+    private final ArrayList<Integer> numbers;
 
-    public RandArraySum(int n) {
+    public task1(int n) {
         numbers = getArrayWithRandomIntNumbers(n);
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        task1 randomArraySum = new task1(n);
+        randomArraySum.printArrayAndSum();
     }
 
     public ArrayList<Integer> getArrayWithRandomIntNumbers(int n) {
@@ -35,12 +43,5 @@ public class RandArraySum{
     public void printArrayAndSum() {
         System.out.println("Array: " + numbers);
         System.out.println("Sum of positive numbers: " + getPositiveSum(numbers));
-    }
-
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-        RandArraySum randomArraySum = new RandArraySum(n);
-        randomArraySum.printArrayAndSum();
     }
 }
