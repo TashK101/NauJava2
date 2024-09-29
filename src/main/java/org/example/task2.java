@@ -1,21 +1,29 @@
 package org.example;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-public class DoubleArraySort {
+public class task2 {
+    private final ArrayList<Double> numbers;
 
-    private ArrayList<Double> numbers;
-
-    public DoubleArraySort(int n) {
+    public task2(int n) {
         numbers = getArrayWithRandomDoubleNumbers(n);
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+
+        task2 randomArraySorter = new task2(n);
+        randomArraySorter.printOriginalAndSortedArray();
     }
 
     public ArrayList<Double> getArrayWithRandomDoubleNumbers(int n) {
         Random random = new Random();
         var newArr = new ArrayList<Double>(n);
         for (int i = 0; i < n; i++) {
-            newArr.add(random.nextDouble()); // Random double between 0 and 100
+            newArr.add(random.nextDouble());
         }
         return newArr;
     }
@@ -39,13 +47,5 @@ public class DoubleArraySort {
         ArrayList<Double> sortedNumbers = new ArrayList<>(numbers);
         insertionSort(sortedNumbers);
         System.out.println("Sorted List: " + sortedNumbers);
-    }
-
-    public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        int n = in.nextInt();
-
-        DoubleArraySort randomArraySorter = new DoubleArraySort(n);
-        randomArraySorter.printOriginalAndSortedArray();
     }
 }
